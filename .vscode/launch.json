@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "1. Generar datos",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/generar_datos.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "2. Entrenar modelos",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/entrenar_modelos.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "3. Predecir (ejemplo CLI)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/predecir.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

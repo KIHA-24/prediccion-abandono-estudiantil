@@ -1,0 +1,30 @@
+{
+  "mejor_modelo": "Regresión Logística",
+  "metricas": {
+    "modelo": "Regresión Logística",
+    "accuracy": 0.7933333333333333,
+    "precision": 0.6967213114754098,
+    "recall": 0.7727272727272727,
+    "f1": 0.7327586206896551,
+    "roc_auc": 0.8764114832535885
+  },
+  "columnas_numericas": [
+    "edad",
+    "semestre_actual",
+    "estrato_socioeconomico",
+    "promedio_academico",
+    "porcentaje_asistencia",
+    "materias_perdidas_semestre",
+    "horas_trabajo_semanal",
+    "distancia_campus_km"
+  ],
+  "columnas_categoricas": [
+    "genero",
+    "nivel_educativo_padres",
+    "apoyo_financiero",
+    "beca",
+    "dificultades_economicas",
+    "participacion_actividades",
+    "problemas_salud_mental"
+  ]
+}
