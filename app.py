@@ -76,12 +76,29 @@ def cargar_info_modelo():
         return json.load(f)
 
 
+@st.cache_resource
+def asegurar_modelos_entrenados() -> None:
+    """
+    Entrena los modelos desde cero si no existen todavía — necesario en un
+    despliegue nuevo (p. ej. Streamlit Community Cloud), donde los .joblib
+    no se suben a git por ser pesados y solo viaja data/estudiantes.csv.
+    @st.cache_resource hace que esto corra una sola vez por proceso del
+    servidor, no en cada recarga de página.
+    """
+    if (MODELS_DIR / "mejor_modelo.joblib").exists():
+        return
+    with st.spinner("Entrenando modelos por primera vez, esto toma unos segundos..."):
+        entrenar_modelos.main()
+
+
 def main():
     st.title("🎓 Predicción de Abandono Estudiantil")
     st.caption(
         "Prototipo académico — Proyecto: *Predicción de abandono estudiantil* · "
         "Área: Aprendizaje supervisado · Modelos: Regresión Logística, Random Forest, XGBoost"
     )
+
+    asegurar_modelos_entrenados()
 
     info_modelo = cargar_info_modelo()
     if info_modelo is None:
